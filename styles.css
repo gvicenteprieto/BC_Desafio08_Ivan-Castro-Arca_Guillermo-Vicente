@@ -11,7 +11,8 @@ body {
 }
 
 .Header {
-    margin: 20px;
+    width: 90vw;
+    margin: auto;
     background-color: #118b34;
 }
 
@@ -22,18 +23,15 @@ body {
 }
 
 .Main {
-    margin: 20px;
-    padding: 20px;
     text-align: center;
     color: rgb(57, 57, 57);
-    /* background-color: #118b34; */
     display: flex;
     flex-direction: row;
 }
 
 .Main .section {
-    width: 50vw;
-    margin: 20px;
+    width: 40vw;
+    margin: 0 auto;
     padding: 20px;
     text-align: center;
     background-color: #393939;
@@ -43,7 +41,6 @@ body {
     padding: 10px;
     color: #ffffff;
     background-color: #054b91;
-
 }
 
 .Main .section dt {
