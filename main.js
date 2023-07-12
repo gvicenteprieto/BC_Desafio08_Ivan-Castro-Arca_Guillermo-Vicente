@@ -64,6 +64,7 @@ function comparaNombres(i1, i2) {
       } 
     }
   } 
+  return
 }
 
 function comparaApellidos(i1, i2) {
@@ -87,8 +88,10 @@ function comparaApellidos(i1, i2) {
 eliminarEspaciosVacios(i1, i2);
 mostrarIntegrantes(i1, i2);
 
+
 devolverNombres(i1, i2); 
 comparaNombres(i1, i2);
+
 
 let confirmacion = confirm(`¿Desea comparar los apellidos?`);
 if (confirmacion) {
