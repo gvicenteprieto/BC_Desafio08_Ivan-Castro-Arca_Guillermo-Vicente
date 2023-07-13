@@ -13,28 +13,44 @@ let i2Ape2 = document.querySelector("#i2Ape2").textContent;
 i1 = [i1Nom1, i1Nom2, i1Ape1, i1Ape2];
 i2 = [i2Nom1, i2Nom2, i2Ape1, i2Ape2];
 
-function eliminarEspaciosVacios(array) {
-  let espacioVacio = array.indexOf("");
-  if (espacioVacio !== -1) {
-    array.splice(espacioVacio, 1);
+// function eliminarEspaciosVacios(array) {
+//   let espacioVacio = array.indexOf("");
+//   if (espacioVacio !== -1) {
+//     array.splice(espacioVacio, 1);
+//   }
+//   return;
+// }
+
+function armarNombre(nom1, nom2, ape1, ape2) {
+  let integrante = "";
+  for (let i = 0; i < arguments.length; i++) {
+    if (arguments[i] != "") {
+      integrante += arguments[i] + " ";
+    }
   }
-  return;
+  return integrante;
 }
 
-function mostrarIntegrantes(i1, i2) {
-  for (let i = 2; i < i1.length; i++) {
-    i1[i] = i1[i].toUpperCase();
-    i2[i] = i2[i].toUpperCase();
-  }
-  let integrante1 = i1.join(" ");
-  let integrante2 = i2.join(" ");
-  console.log(`
------
-Integrante 1: "${integrante1}" 
-Integrante 2: "${integrante2}"
------`);
-  return;
-}
+let integrante1 =armarNombre(i1Nom1, i1Nom2, i1Ape1.toLocaleUpperCase(), i1Ape2.toLocaleUpperCase());
+console.log('-----\nIntegrante 1: "' + integrante1 + '"');
+let integrante2 = armarNombre(i2Nom1, i2Nom2, i2Ape1.toLocaleUpperCase(), i2Ape2.toLocaleUpperCase());
+console.log('Integrante 2: "' + integrante2 + '"\n-----');
+
+
+// function mostrarIntegrantes(i1, i2) {
+//   for (let i = 2; i < i1.length; i++) {
+//     i1[i] = i1[i].toUpperCase();
+//     i2[i] = i2[i].toUpperCase();
+//   }
+//   let integrante1 = i1.join(" ");
+//   let integrante2 = i2.join(" ");
+//   console.log(`
+// -----
+// Integrante 1: "${integrante1}" 
+// Integrante 2: "${integrante2}"
+// -----`);
+//   return;
+// }
 
 function devolverNombres(i1, i2) {
   let i1Nombres = i1.filter((el) => el === i1Nom1 || el === i1Nom2);
@@ -99,8 +115,8 @@ function comparaApellidos(i1, i2) {
   }
 }
 
-eliminarEspaciosVacios(i1, i2);
-mostrarIntegrantes(i1, i2);
+//eliminarEspaciosVacios(i1, i2);
+//mostrarIntegrantes(i1, i2);
 
 devolverNombres(i1, i2);
 comparaNombres(i1, i2);
