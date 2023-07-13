@@ -49,8 +49,9 @@ function devolverApellidos(i1, i2) {
 }
 
 function comparaNombres(i1, i2) {
-  for (let i = 0; i < i1.length-2; i++) {
-    for (let j = 0; j < i2.length-2; j++) {
+  let coincidencia = false;
+  for (let i = 0; i < i1.length - 2; i++) {
+    for (let j = 0; j < i2.length - 2; j++) {
       if (i1[i] === i2[j]) {
         const posCoincI1 = i1.findIndex((element) => element === i1[i]);
         const posCoincI2 = i2.findIndex((element) => element === i2[j]);
@@ -59,42 +60,56 @@ function comparaNombres(i1, i2) {
         Ingrese un color para resaltarlas`);
         document.querySelector(`#i1Nom${posCoincI1 + 1}`).style.color = color;
         document.querySelector(`#i2Nom${posCoincI2 + 1}`).style.color = color;
-        document.querySelector(`#i1Nom${posCoincI1 + 1}`).style.fontWeight = "bold";
-        document.querySelector(`#i2Nom${posCoincI2 + 1}`).style.fontWeight = "bold";
-      } 
+        document.querySelector(`#i1Nom${posCoincI1 + 1}`).style.fontWeight =
+          "bold";
+        document.querySelector(`#i2Nom${posCoincI2 + 1}`).style.fontWeight =
+          "bold";
+        coincidencia = true;
+      }
     }
-  } 
-  return
+  }
+  if (coincidencia === false) {
+    console.log("No hubo coincidencia en los NOMBRES.");
+  }
 }
 
 function comparaApellidos(i1, i2) {
+  let coincidencia = false;
   for (let i = 0; i < i1.length; i++) {
     for (let j = 0; j < i2.length; j++) {
       if (i1[i] === i2[j]) {
         const posCoincI1 = i1.findIndex((element) => element === i1[i]);
         const posCoincI2 = i2.findIndex((element) => element === i2[j]);
-        let color = prompt(`Hubo coincidencia en los APELLIDOS de los integrantes. 
+        let color =
+          prompt(`Hubo coincidencia en los APELLIDOS de los integrantes. 
         Coincidencia: ${i1[i]} \n
         Ingrese un color para resaltarlas`);
-        document.querySelector(`#i1Ape${posCoincI1 +1}`).style.color = color;
-        document.querySelector(`#i2Ape${posCoincI2 +1}`).style.color = color;
-        document.querySelector(`#i1Ape${posCoincI1 +1}`).style.fontWeight = "bold";
-        document.querySelector(`#i2Ape${posCoincI2 +1}`).style.fontWeight = "bold";
-      } 
+        document.querySelector(`#i1Ape${posCoincI1 + 1}`).style.color = color;
+        document.querySelector(`#i2Ape${posCoincI2 + 1}`).style.color = color;
+        document.querySelector(`#i1Ape${posCoincI1 + 1}`).style.fontWeight =
+          "bold";
+        document.querySelector(`#i2Ape${posCoincI2 + 1}`).style.fontWeight =
+          "bold";
+        coincidencia = true;
+      }
     }
+  }
+  if (coincidencia === false) {
+    console.log("No hubo coincidencia en los APELLIDOS.");
   }
 }
 
 eliminarEspaciosVacios(i1, i2);
 mostrarIntegrantes(i1, i2);
 
-
-devolverNombres(i1, i2); 
+devolverNombres(i1, i2);
 comparaNombres(i1, i2);
 
-
 let confirmacion = confirm(`¿Desea comparar los apellidos?`);
+
 if (confirmacion) {
   devolverApellidos(i1, i2);
   comparaApellidos(i1, i2);
-} 
+} else {
+  console.log("No coinciden los apellidos");
+}
