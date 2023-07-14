@@ -28,22 +28,12 @@ console.log('-----\nIntegrante 1: "' + integrante1 + '"');
 let integrante2 = armarNombre(i2Nom1, i2Nom2, i2Ape1.toLocaleUpperCase(), i2Ape2.toLocaleUpperCase());
 console.log('Integrante 2: "' + integrante2 + '"\n-----');
 
-function devolverNombres(i1, i2) {
-  let i1Nombres = i1.filter((el) => el === i1Nom1 || el === i1Nom2);
-  let i2Nombres = i2.filter((el) => el === i2Nom1 || el === i2Nom2);
-  return i1Nombres, i2Nombres;
-}
-
-function devolverApellidos(i1, i2) {
-  let i1Apellidos = i1.splice(0, 2);
-  let i2Apellidos = i2.splice(0, 2);
-  return i1Apellidos, i2Apellidos;
-}
-
-function comparaNombres(i1, i2) {
+function compararNombres(i1, i2) {
   let coincidencia = false;
-  for (let i = 0; i < i1.length - 2; i++) {
-    for (let j = 0; j < i2.length - 2; j++) {
+  i1 = i1.filter((el) => el === i1Nom1 || el === i1Nom2);
+  i2= i2.filter((el) => el === i2Nom1 || el === i2Nom2);
+  for (let i = 0; i < i1.length; i++) {
+    for (let j = 0; j < i2.length; j++) {
       if (i1[i] === i2[j]) {
         const posCoincI1 = i1.findIndex((element) => element === i1[i]);
         const posCoincI2 = i2.findIndex((element) => element === i2[j]);
@@ -57,6 +47,7 @@ function comparaNombres(i1, i2) {
         document.querySelector(`#i2Nom${posCoincI2 + 1}`).style.fontWeight =
           "bold";
         coincidencia = true;
+        console.log(`Hubo coincidencia en los NOMBRES. Coincidencia: ${i1[i].toUpperCase()}`);
       }
     }
   }
@@ -65,16 +56,18 @@ function comparaNombres(i1, i2) {
   }
 }
 
-function comparaApellidos(i1, i2) {
+function compararApellidos(i1, i2) {
   let coincidencia = false;
+  i1= i1.filter((el) => el === i1Ape1 || el === i1Ape2);
+  i2 = i2.filter((el) => el === i2Ape1 || el === i2Ape2);
+
   for (let i = 0; i < i1.length; i++) {
     for (let j = 0; j < i2.length; j++) {
       if (i1[i] === i2[j]) {
         const posCoincI1 = i1.findIndex((element) => element === i1[i]);
         const posCoincI2 = i2.findIndex((element) => element === i2[j]);
-        let color =
-          prompt(`Hubo coincidencia en los APELLIDOS de los integrantes. 
-        Coincidencia: ${i1[i]} \n
+        let color = prompt(`Hay coincidencia en los APELLIDOS de los integrantes.
+        Coincidencia: ${i1[i].toUpperCase()} \n
         Ingrese un color para resaltarlas`);
         document.querySelector(`#i1Ape${posCoincI1 + 1}`).style.color = color;
         document.querySelector(`#i2Ape${posCoincI2 + 1}`).style.color = color;
@@ -83,6 +76,7 @@ function comparaApellidos(i1, i2) {
         document.querySelector(`#i2Ape${posCoincI2 + 1}`).style.fontWeight =
           "bold";
         coincidencia = true;
+        console.log(`Hubo coincidencia en los APELLIDOS. Coincidencia: ${i1[i].toUpperCase()}`);
       }
     }
   }
@@ -91,14 +85,10 @@ function comparaApellidos(i1, i2) {
   }
 }
 
-devolverNombres(i1, i2);
-comparaNombres(i1, i2);
-
-let confirmacion = confirm(`¿Desea comparar los apellidos?`);
-
-if (confirmacion) {
-  devolverApellidos(i1, i2);
-  comparaApellidos(i1, i2);
-} else {
-  console.log("No coinciden los apellidos");
-}
+setTimeout(() => {
+  compararNombres(i1, i2);
+  let confirmacion = confirm(`¿Desea comparar los apellidos?`);
+  if (confirmacion) {
+    compararApellidos(i1, i2);
+  }
+}, 500);
