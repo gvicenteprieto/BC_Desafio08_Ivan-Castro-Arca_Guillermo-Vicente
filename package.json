@@ -1,0 +1,26 @@
+{
+  "name": "bc_desafio08_ivan-castro-arca_guillermo-vicente",
+  "version": "1.0.0",
+  "description": "Desafío grupal del bootcamp de Full Stack de [educaciónIT](https(https://www.educacionit.com/)",
+  "main": "src/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "sass --watch src/styles.scss:public/styles/styles.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gvicenteprieto/BC_Desafio08_Ivan-Castro-Arca_Guillermo-Vicente.git"
+  },
+  "authors": {
+    "Ivan Castro Arca": "https://github.com/ivanaca777",
+    "Guillermo Vicente": "https://github.com/gvicenteprieto"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gvicenteprieto/BC_Desafio08_Ivan-Castro-Arca_Guillermo-Vicente/issues"
+  },
+  "homepage": "https://github.com/gvicenteprieto/BC_Desafio08_Ivan-Castro-Arca_Guillermo-Vicente#readme",
+  "dependencies": {
+    "sass": "^1.63.6"
+  }
+}
